@@ -1,0 +1,7 @@
+dreamhotel_chambres_homepage:
+    path:     /
+    defaults: { _controller: DREAMHOTELChambresBundle:Default:index }
+    
+dreamhotel_accueil:
+    path:     /accueil
+    defaults: {_controller: DREAMHOTELAccueilBundle:Default:index}

@@ -1,0 +1,24 @@
+dreamhotel_evenements:
+    resource: "@DREAMHOTELEvenementsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dreamhotel_salles:
+    resource: "@DREAMHOTELSallesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dreamhotel_activites:
+    resource: "@DREAMHOTELActivitesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+dreamhotel_chambres:
+    resource: "@DREAMHOTELChambresBundle/Resources/config/routing.yml"
+    prefix:   /chambres
+
+
+dreamhotel_accueil:
+    resource: "@DREAMHOTELAccueilBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

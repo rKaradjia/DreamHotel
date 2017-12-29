@@ -1,0 +1,4 @@
+services:
+#    dreamhotel_evenements.example:
+#        class: DREAMHOTEL\EvenementsBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

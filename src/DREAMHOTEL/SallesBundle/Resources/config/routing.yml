@@ -1,0 +1,3 @@
+dreamhotel_salles_homepage:
+    path:     /
+    defaults: { _controller: DREAMHOTELSallesBundle:Default:index }

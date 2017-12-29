@@ -1,0 +1,16 @@
+dreamhotel_accueil_homepage:
+    path:     /
+    defaults: { _controller: DREAMHOTELAccueilBundle:Default:index }
+    
+dreamhotel_chambres:
+   path: /chambres
+   defaults: { _controller: DREAMHOTELChambresBundle:Default:index }
+   
+dramhotel_salles:
+   path: /salles
+   defaults: { _controller: DREAMHOTELSallesBundle:Default:index }
+    
+    
+ dreamhotel_evenements:    
+    path: /evenements
+   defaults: { _controller: DREAMHOTELEvenementsBundle:Default:index }

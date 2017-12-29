@@ -1,0 +1,3 @@
+dreamhotel_evenements_homepage:
+    path:     /
+    defaults: { _controller: DREAMHOTELEvenementsBundle:Default:index }
