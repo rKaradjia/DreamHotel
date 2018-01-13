@@ -1,3 +1,28 @@
-dreamhotel_salles_homepage:
-    path:     /
-    defaults: { _controller: DREAMHOTELSallesBundle:Default:index }
+dreamhotel_accueil:
+    path: /acceuil
+    defaults: { _controller: DREAMHOTELAccueilBundle:Default:index }
+    
+dreamhotel_chambres:
+   path: /chambres
+   defaults: { _controller: DREAMHOTELChambresBundle:Default:index }
+   
+dreamhotel_salles:
+   path: /salles
+   defaults: { _controller: DREAMHOTELSallesBundle:Default:index }
+    
+    
+dreamhotel_evenements:    
+   path: /evenements
+   defaults: { _controller: DREAMHOTELEvenementsBundle:Default:index }
+  
+dreamhotel_activites:
+   path: /activites
+   defaults: { _controller: DREAMHOTELActivitesBundle:Default:index}
+    
+dreamhotel_reserver:
+   path: /reserver
+   defaults: { _controller: DREAMHOTELReserverBundle:Default:index}
+  
+dreamhotel_compte:
+    path: /compte
+    defaults: { _controller: DREAMHOTELCompteBundle:Default:index}
