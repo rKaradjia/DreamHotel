@@ -1,0 +1,4 @@
+services:
+#    dreamhotel_compte.example:
+#        class: DREAMHOTEL\CompteBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

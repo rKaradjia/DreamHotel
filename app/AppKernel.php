@@ -22,6 +22,8 @@ class AppKernel extends Kernel
             new DREAMHOTEL\ActivitesBundle\DREAMHOTELActivitesBundle(),
             new DREAMHOTEL\SallesBundle\DREAMHOTELSallesBundle(),
             new DREAMHOTEL\EvenementsBundle\DREAMHOTELEvenementsBundle(),
+            new DREAMHOTEL\ReserverBundle\DREAMHOTELReserverBundle(),
+            new DREAMHOTEL\CompteBundle\DREAMHOTELCompteBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
