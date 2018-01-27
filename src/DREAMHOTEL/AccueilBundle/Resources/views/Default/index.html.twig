@@ -2,32 +2,44 @@ Hello World!
 {# Dans la vue twig #}
 
 <style>
-    #menu, #menu ul /* Liste */     
+     #menu, #menu ul  
 
 {
 
         padding : 0; /* pas de marge intérieure */
 
         margin : 0; /* ni extérieure */
+        
+       /* margin-right: auto;
+        
+        margin-left: auto;*/
 
         list-style : none; /* on supprime le style par défaut de la liste */
 
         line-height : 21px; /* on définit une hauteur pour chaque élément */
 
         text-align : center; /* on centre le texte qui se trouve dans la liste */
+        
+        
 
 }
 
 
-#menu /* Ensemble du menu */
+#menu
 
 {
 
-        font-weight : bold; /* on met le texte en gras */
+        font-weight : bold; 
 
-        font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+        font-family : Arial; 
 
-        font-size : 12px; /* hauteur du texte : 12 pixels */
+        font-size : 12px; 
+        
+        margin-right: auto;
+            
+        margin-left: auto;
+        
+        width:1050px;
 
 }
 
@@ -141,5 +153,5 @@ html>body #menu li ul ul
   <li><a href="{{ path('dreamhotel_activites') }}" title="aller à la section 3">Activités</a></li>
   <li><a href="{{ path('dreamhotel_evenements') }}" title="aller à la section 4">Evenements</a></li>
   <li><a href="{{ path('dreamhotel_reserver') }}" title="aller à la section 5">Reserver</a></li>
-  <li><a href="{{ path('dreamhotel_compte') }}" title="creation du compte">Creer Compte</a></li>
+  <li><a href="{{ path('dreamhotel_compte') }}" title="creation du compte">Compte</a></li>
 </ul>

@@ -27,3 +27,20 @@ dreamhotel_compte:
     path: /compte
     defaults: { _controller: DREAMHOTELCompteBundle:Default:index}
     
+    
+    
+twin_standart:
+    path: /twin_standart
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:twinstandart}
+
+simple_standart:
+    path: /simple_standart
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:simplestandart}
+
+double_standart:
+    path: /double_standart
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:doublestandart}    
+    
+suite_deluxe:
+    path: /suite_deluxe
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:suitedeluxe}

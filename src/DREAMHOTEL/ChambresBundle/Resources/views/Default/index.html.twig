@@ -1,32 +1,44 @@
 Les Chambres
 {# Dans la vue twig #}
 <style>
-    #menu, #menu ul /* Liste */     
+    #menu, #menu ul  
 
 {
 
         padding : 0; /* pas de marge intérieure */
 
         margin : 0; /* ni extérieure */
+        
+       /* margin-right: auto;
+        
+        margin-left: auto;*/
 
         list-style : none; /* on supprime le style par défaut de la liste */
 
         line-height : 21px; /* on définit une hauteur pour chaque élément */
 
         text-align : center; /* on centre le texte qui se trouve dans la liste */
+        
+        
 
 }
 
 
-#menu /* Ensemble du menu */
+#menu
 
 {
 
-        font-weight : bold; /* on met le texte en gras */
+        font-weight : bold; 
 
-        font-family : Arial; /* on utilise Arial, c'est plus beau ^^ */
+        font-family : Arial; 
 
-        font-size : 12px; /* hauteur du texte : 12 pixels */
+        font-size : 12px; 
+        
+        margin-right: auto;
+            
+        margin-left: auto;
+        
+        width:1050px;
 
 }
 
@@ -141,10 +153,39 @@ html>body #menu li ul ul
   <li><a href="{{ path('dreamhotel_activites') }}" title="aller à la section 3">Activités</a></li>
   <li><a href="{{ path('dreamhotel_evenements') }}" title="aller à la section 4">Evenements</a></li>
   <li><a href="{{ path('dreamhotel_reserver') }}" title="aller à la section 5">Reserver</a></li>
-  <li><a href="{{ path('dreamhotel_compte') }}" title="creation du compte">Creer Compte</a></li>
+  <li><a href="{{ path('dreamhotel_compte') }}" title="creation du compte">Compte</a></li>
 </ul>
 
 
 <img src='http://restauration.meosix.fr/hotel-explorateur/wp-content/uploads/sites/46/2015/02/N%C2%B012-Rock.jpg' height='200px' 
      width='200px'>
 <h4>http://restauration.meosix.fr/hotel-explorateur/wp-content/uploads/sites/46/2015/02/N%C2%B012-Rock.jpg</h4>
+
+Note d'information pour le code : il faut / faudra creer un dossier par chambres qui contiendra les informations
+contenant les services pour la formule proposée en fonction du type de chambres tout cela etant alimenté par 
+la base de donnée
+
+<h3>Les chambres Twin</h3>
+{#
+<!--{{ path('dreamhotel_accueil') }}-->   type de lien a mettre dans le href#}
+<h4><a href="{{ path('twin_standart') }}" title="aller à la section 6">Formule standart</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule deluxe</a></h4>
+
+<h3>Les chambres simples</h3>
+
+<h4><a href="{{ path('simple_standart') }}" title="aller à la section 6">Formule standart</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule classique</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
+
+<h3>Les chambres doubles</h3>
+
+<h4><a href="{{ path('double_standart') }}" title="aller à la section 6">Formule standart</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule deluxe</a></h4>
+
+<h3>Les suites</h3>
+<h4><a href="{{ path('suite_deluxe') }}" title="aller à la section 6">Formule deluxe</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule standart</a></h4>
+<h4><a href="#" title="aller à la section 6">Formule presidentielle</a></h4>

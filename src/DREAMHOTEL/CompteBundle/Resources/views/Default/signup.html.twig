@@ -7,12 +7,18 @@ Logo dreamHotel
         padding : 0; /* pas de marge intérieure */
 
         margin : 0; /* ni extérieure */
+        
+       /* margin-right: auto;
+        
+        margin-left: auto;*/
 
         list-style : none; /* on supprime le style par défaut de la liste */
 
         line-height : 21px; /* on définit une hauteur pour chaque élément */
 
         text-align : center; /* on centre le texte qui se trouve dans la liste */
+        
+        
 
 }
 
@@ -26,6 +32,12 @@ Logo dreamHotel
         font-family : Arial; 
 
         font-size : 12px; 
+        
+        margin-right: auto;
+            
+        margin-left: auto;
+        
+        width:1050px;
 
 }
 
@@ -127,6 +139,10 @@ html>body #menu li ul ul
         border-left     : 1px solid transparent ; /* on met une bordure transparente sur la gauche de chaque élément */
 
 }
+#creercompte
+{
+    margin-left:25%;
+}
 </style>
 <ul id="menu">
   <li><a href="{{ path('dreamhotel_accueil') }}" title="aller à la section 6">Accueil</a></li>  
@@ -137,7 +153,8 @@ html>body #menu li ul ul
   <li><a href="{{ path('dreamhotel_reserver') }}" title="aller à la section 5">Reserver</a></li>
   <li><a href="#">Compte</a></li>
 </ul>
-  
+  </br>
+<div id="creercompte">  
   <h5>Identifiant</h5>
   <input type="text"></input>
   <h5>Mot de passe</h5>
@@ -163,3 +180,4 @@ html>body #menu li ul ul
 
   
   <h4>vous avez deja un compte <a href="{{ path('dreamhotel_compte') }}">cliquez ici</a></h4>
+</div>  
