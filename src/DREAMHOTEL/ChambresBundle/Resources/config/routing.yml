@@ -32,15 +32,61 @@ dreamhotel_compte:
 twin_standart:
     path: /twin_standart
     defaults: {_controller: DREAMHOTELChambresBundle:Default:twinstandart}
+    
+twin_confort:
+    path: /twin_confort
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:twinconfort}
+    
+twin_deluxe:
+    path: /twin_deluxe
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:twindeluxe}
+
+
+
+
 
 simple_standart:
     path: /simple_standart
     defaults: {_controller: DREAMHOTELChambresBundle:Default:simplestandart}
 
+simple_classique:
+    path: /simple_classique
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:simpleclassique}    
+    
+simple_confort:
+    path: /simple_confort
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:simpleconfort}
+     
+      
+      
+      
+      
 double_standart:
     path: /double_standart
     defaults: {_controller: DREAMHOTELChambresBundle:Default:doublestandart}    
-    
+ 
+double_confort:
+    path: /double_confort
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:doubleconfort}    
+
+double_deluxe:
+    path: /double_deluxe
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:doubledeluxe}    
+      
+      
+      
 suite_deluxe:
     path: /suite_deluxe
     defaults: {_controller: DREAMHOTELChambresBundle:Default:suitedeluxe}
+    
+suite_confort:
+    path: /suite_confort
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:suiteconfort}    
+    
+suite_presidentielle:
+    path: /suite_presidentielle
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:suitepresidentielle}
+    
+suite_standart:
+    path: /suite_standart
+    defaults: {_controller: DREAMHOTELChambresBundle:Default:suitestandart}    

@@ -42,7 +42,6 @@ Les Chambres
 
 }
 
-
 #menu a /* Contenu des listes */
 
 {
@@ -148,7 +147,23 @@ html>body #menu li ul ul
                                   
 <ul id="menu">
   <li><a href="{{ path('dreamhotel_accueil') }}" title="aller à la section 6">Accueil</a></li>  
-  <li><a href="#" title="aller à la section 1">Chambres</a></li>
+  <li>    <a href="#" title="aller à la section 1">Chambres</a>
+  
+       <ul>
+
+                        <li><a href="#">forum</a></li>
+
+                        <li><a href="#">liens</a></li>
+
+                        <li><a href="#">nous contacter</a></li>
+
+                        <li><a href="#">team</a></li>
+
+                        <li><a href="#">recherche</a></li>
+
+                </ul>
+  
+  </li>
   <li><a href="{{ path('dreamhotel_salles') }}" title="aller à la section 2">Salles</a></li>
   <li><a href="{{ path('dreamhotel_activites') }}" title="aller à la section 3">Activités</a></li>
   <li><a href="{{ path('dreamhotel_evenements') }}" title="aller à la section 4">Evenements</a></li>
@@ -167,25 +182,26 @@ la base de donnée
 
 <h3>Les chambres Twin</h3>
 {#
-<!--{{ path('dreamhotel_accueil') }}-->   type de lien a mettre dans le href#}
+<!--{{ path('dreamhotel_accueil') }}#}
 <h4><a href="{{ path('twin_standart') }}" title="aller à la section 6">Formule standart</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule deluxe</a></h4>
+<h4><a href="{{ path('twin_confort') }}" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="{{ path('twin_deluxe') }}" title="aller à la section 6">Formule deluxe</a></h4>
 
 <h3>Les chambres simples</h3>
 
 <h4><a href="{{ path('simple_standart') }}" title="aller à la section 6">Formule standart</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule classique</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="{{ path('simple_classique') }}" title="aller à la section 6">Formule classique</a></h4>
+<h4><a href="{{ path('simple_confort') }}" title="aller à la section 6">Formule confort</a></h4>
 
 <h3>Les chambres doubles</h3>
 
 <h4><a href="{{ path('double_standart') }}" title="aller à la section 6">Formule standart</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule deluxe</a></h4>
+<h4><a href="{{ path('double_confort') }}" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="{{ path('double_deluxe') }}" title="aller à la section 6">Formule deluxe</a></h4>
 
 <h3>Les suites</h3>
 <h4><a href="{{ path('suite_deluxe') }}" title="aller à la section 6">Formule deluxe</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule confort</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule standart</a></h4>
-<h4><a href="#" title="aller à la section 6">Formule presidentielle</a></h4>
+<h4><a href="{{ path('suite_confort') }}" title="aller à la section 6">Formule confort</a></h4>
+<h4><a href="{{ path('suite_standart') }}" title="aller à la section 6">Formule standart</a></h4>
+<h4><a href="{{ path('suite_presidentielle') }}" title="aller à la section 6">Formule presidentielle</a></h4>
+#}
