@@ -156,25 +156,25 @@ html>body #menu li ul ul
   </br>
 <div id="creercompte">  
   <h5>Identifiant</h5>
-  <input type="text"></input>
+  {{ form_widget(form.id) }}
   <h5>Mot de passe</h5>
-  <input type="password"></input>
-  <h5>Prenom</h5>
-  <input type="text"></input>
+{{ form_widget(form.mdp) }}
+<h5>Prenom</h5>
+  {{ form_widget(form.prenom) }}
   <h5>Nom de famille</h5>
-  <input type="text"></input>
+  {{ form_widget(form.nom) }}
   <h4>Lieu de résidence</h4>
   <h5>Rue</h5>
-  <input type="text"></input>
+  {{ form_widget(form.rue) }}
   <h5>Ville</h5>
-  <input type="text"></input>
+  {{ form_widget(form.ville) }}
   
   </br>
   </br>
 
 <form action="">
 
-    <input type="submit" value="Valider" />
+    {{ form_widget(form.save) }}
 
 </form>
 

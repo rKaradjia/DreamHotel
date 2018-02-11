@@ -153,7 +153,18 @@ html>body #menu li ul ul
     </br>
       </br>
         </br>
-  <input type="text"></input>
-  <input type="password"</input>
+  <form action="" method="post">
+    <h5>Identification*</h5>
+    
+    {{ form_widget(form.id) }}
+
+    {{ form_widget(form.mdp) }}
+    
+    {{ form_widget(form.save) }}
+    
+    
+    
+</form>
+
   <h4>Vous n avez pas de compte cliquez ici</h4>
       <a href="{{ path('dreamhotel_creercompte') }}">Creer un compte</a>
