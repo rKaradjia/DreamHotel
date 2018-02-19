@@ -1,0 +1,19 @@
+DREAMHOTEL\AccueilBundle\Entity\activites:
+    type: entity
+    table: null
+    repositoryClass: DREAMHOTEL\AccueilBundle\Repository\activitesRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libelle:
+            type: string
+            length: '30'
+        prix:
+            type: decimal
+            precision: '4'
+            scale: '4'
+    lifecycleCallbacks: {  }
