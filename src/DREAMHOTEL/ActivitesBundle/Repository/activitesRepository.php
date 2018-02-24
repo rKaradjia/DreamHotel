@@ -1,6 +1,6 @@
 <?php
 
-namespace DREAMHOTEL\AccueilBundle\Repository;
+namespace DREAMHOTEL\ActivitesBundle\Repository;
 
 /**
  * activitesRepository

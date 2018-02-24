@@ -15,6 +15,12 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
+        $request = $this->container->get('request');
+        $form->handleRequest($request);
+        if ($form->isValid())
+            { 
+         // traitement
+            }
         $task=new Formulaire();
         $task->setSaisieid('id');
         $task->setSaisiemdp('mot de passe');

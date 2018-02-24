@@ -9,6 +9,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
+use Symfony\Component\HttpFoundation\Request;
+
 class DefaultController extends Controller
 {
     public function indexAction()
@@ -26,13 +28,14 @@ class DefaultController extends Controller
 
             'form' => $form->createView(),));*/
         
+       
         return $this->render('DREAMHOTELCompteBundle:Default:index.html.twig', array(
 
             'form' => $form->createView(),
 
         ));
     }
-    public function creercompteAction()
+    public function creercompteAction(Request $request)
     {
         $compte = new Compte();
         $compte->setId('id');
@@ -56,6 +59,15 @@ class DefaultController extends Controller
                 
             ->add('save', SubmitType::class, array('label' => 'Creer'))    
             ->getForm();
+        
+         
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+        // data is an array with "name", "email", and "message" keys
+            $data = $form->getData();
+         }
+        
         
         
         return $this->render('DREAMHOTELCompteBundle:Default:signup.html.twig', array(

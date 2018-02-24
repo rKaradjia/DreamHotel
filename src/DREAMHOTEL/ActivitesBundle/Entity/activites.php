@@ -2,23 +2,36 @@
 
 namespace DREAMHOTEL\ActivitesBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
- * acceuil
+ * activites
+ *
+ * @ORM\Table(name="activites")
+ * @ORM\Entity(repositoryClass="DREAMHOTEL\ActivitesBundle\Repository\activitesRepository")
  */
 class activites
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="libelle", type="string", length=30)
      */
     private $libelle;
 
     /**
-     * @var string
+     * @var int
+     *
+     * @ORM\Column(name="prix", type="integer")
      */
     private $prix;
 
@@ -38,7 +51,7 @@ class activites
      *
      * @param string $libelle
      *
-     * @return acceuil
+     * @return activites
      */
     public function setLibelle($libelle)
     {
@@ -60,9 +73,9 @@ class activites
     /**
      * Set prix
      *
-     * @param string $prix
+     * @param integer $prix
      *
-     * @return acceuil
+     * @return activites
      */
     public function setPrix($prix)
     {
@@ -74,7 +87,7 @@ class activites
     /**
      * Get prix
      *
-     * @return string
+     * @return int
      */
     public function getPrix()
     {
