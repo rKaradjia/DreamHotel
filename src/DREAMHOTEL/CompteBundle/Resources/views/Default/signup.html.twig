@@ -154,29 +154,44 @@ html>body #menu li ul ul
   <li><a href="#">Compte</a></li>
 </ul>
   </br>
-<div id="creercompte">  
-  <h5>Identifiant</h5>
-  {{ form_widget(form.id) }}
-  <h5>Mot de passe</h5>
-{{ form_widget(form.mdp) }}
-<h5>Prenom</h5>
-  {{ form_widget(form.prenom) }}
+  
+  
+  {#->add('nom', TextType::class)
+             
+            ->add('prenom', TextType::class)   
+                
+            ->add('villeResidence', TextType::class)    
+                
+            ->add('rueResidence', TextType::class)   
+                
+            ->add('identifiantCo', TextType::class)    
+               
+            ->add('mdpCo', PasswordType::class)    
+                
+            ->add('save', SubmitType::class, array('label' => 'Creer'));#}
+<div>  
+    {{ form_start(form) }}
   <h5>Nom de famille</h5>
   {{ form_widget(form.nom) }}
-  <h4>Lieu de résidence</h4>
-  <h5>Rue</h5>
-  {{ form_widget(form.rue) }}
-  <h5>Ville</h5>
-  {{ form_widget(form.ville) }}
+  <h5>Prenom</h5>
+{{ form_widget(form.prenom) }}
+<h5>Ville de résidence</h5>
+  {{ form_widget(form.villeResidence) }}
+  <h5>Rue de résidence</h5>
+  {{ form_widget(form.rueResidence) }}
+  <h4>Paramètres de connexion</h4>
+  <h5>Identifiant</h5>
+  {{ form_widget(form.identifiantCo) }}
+  <h5>Mot de passe</h5>
+  {{ form_widget(form.mdpCo) }}
   
   </br>
   </br>
 
-<form action="">
+
 
     {{ form_widget(form.save) }}
-
-</form>
+{{ form_end(form) }}
 
   
   <h4>vous avez deja un compte <a href="{{ path('dreamhotel_compte') }}">cliquez ici</a></h4>

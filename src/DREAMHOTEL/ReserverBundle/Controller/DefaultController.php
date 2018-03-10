@@ -10,18 +10,20 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+
+
+use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $request = $this->container->get('request');
-        $form->handleRequest($request);
-        if ($form->isValid())
-            { 
-         // traitement
-            }
+        
         $task=new Formulaire();
+        
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $task);
+        
         $task->setSaisieid('id');
         $task->setSaisiemdp('mot de passe');
         $task->setTypeChambre('typeChambre');
@@ -30,7 +32,7 @@ class DefaultController extends Controller
         $task->setSalle('salle');
         $task->setActivite('Activite');
         
-         $form = $this->createFormBuilder($task)
+        $formBuilder
             ->add('saisieid', TextType::class)
             ->add('saisiemdp', PasswordType::class)
             ->add('typechambre', ChoiceType::class, array(
@@ -90,8 +92,40 @@ class DefaultController extends Controller
             
         )
     ))      
-            ->add('save', SubmitType::class, array('label' => 'Create Task'))
-            ->getForm();
+            ->add('save', SubmitType::class, array('label' => 'Create Task'));
+        
+        $form = $formBuilder->getForm();
+        
+        
+       
+        
+        //$form->handleRequest($request);
+	
+
+     /* if ($form->isSubmitted()) {
+
+      // On vérifie que les valeurs entrées sont correctes
+      // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
+         if ($form->isValid()) {
+
+        // On enregistre notre objet $livre dans la base de données : 
+        
+           $em = $this->getDoctrine()->getManager();         
+           $em->persist($task);
+           $request->getSession()->getFlashBag()->add('notice', 'Categorie bien enregistré.');
+           $em->flush();        
+           //$request->getSession()->getFlashBag()->add('notice', 'Categorie bien enregistré.');
+
+      // À partir du formBuilder, on génère le formulaire
+    // On redirige vers la page de visualisation du livre nouvellement créé
+
+        return $this->redirectToRoute('affichage_page', array('id' => $categorie->getId()));
+         
+         
+         }
+      }*/
+        
         
         return $this->render('DREAMHOTELReserverBundle:Default:index.html.twig', array(
 
