@@ -15,20 +15,77 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
-        $compte = new Compte();
-        $compte->setId('id');
-        $compte->setMdp('mdp');
+      //creation du formulaire 
+       
+        $client = new Client();
         
-        $form = $this->createFormBuilder($compte)
-            ->add('id', TextType::class)
-            ->add('mdp', PasswordType::class)
-            ->add('save', SubmitType::class, array('label' => 'Se Connecter'))    
-            ->getForm();
-       /* return $this->render('DREAMHOTELCompteBundle:Default:index.html.twig', array(
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $client);
+        
+        $formBuilder
+                
+            ->add('identifiantCo', TextType::class)    
+               
+            ->add('mdpCo', PasswordType::class)    
+                
+            ->add('save', SubmitType::class, array('label' => 'Creer'));
+       
+        $form = $formBuilder->getForm();
+       
+        $form->handleRequest($request);
+	
+        //on verifit qu'on est en post
+      if ($form->isSubmitted()) {
 
-            'form' => $form->createView(),));*/
+      // On vérifie que les valeurs entrées sont correctes
+      // (Nous verrons la validation des objets en détail dans le prochain chapitre)
+
+         if ($form->isValid()) {
+
+              $id = $form->get('identifiantCo')->getData();
+              $mdp = $form->get('mdpCo')->getData();
+        
+              /*$conn = $this->getEntityManager()->getConnection();
+//WHERE identifiantco = '.$id.' and mdpco = '.$mdp.'
+                 $sql = '
+                     SELECT * FROM client
+                     WHERE identifiantco = karado and mdpco = azerty
+                        ';
+                $stmt = $conn->prepare($sql);
+                $stmt->execute();*/
+               $entityManager = $this->getEntityManager();
+
+               $query = $entityManager->createQuery(
+                   'SELECT count(*)
+                    FROM DREAMHOTELCompteBundle\Entity\Client c
+                    WHERE c.identifiantco = :identifiantco
+                    AND c.mdpco = :mdpco'
+                  )->setParameter('identifiantco', $id)
+                   ->setParameter('mdpco' , $mdp);
+
+    // returns an array of Product objects
+           $nbLigne = $query->execute();
+
+            //    $nbLigne = $stmt->rowCount();
+    // returns an array of arrays (i.e. a raw data set)
+    //return $stmt->fetchAll();
+              if ( $nbLigne == 1){
+                  print_r ($nbLigne);
+                  print_r("RESERVER");
+                  return $this->redirectToRoute('dreamhotel_reserver');
+                  
+              }
+           
+
+      // À partir du formBuilder, on génère le formulaire
+    // On redirige vers la page de visualisation du livre nouvellement créé
+
+        //return $this->redirectToRoute('dreamhotel_reserver', array('id' => $client->getId()));
+         
+         
+         }
+      }
         
        
         return $this->render('DREAMHOTELCompteBundle:Default:index.html.twig', array(

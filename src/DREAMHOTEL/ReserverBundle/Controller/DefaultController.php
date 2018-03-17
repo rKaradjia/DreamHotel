@@ -11,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-
+use \DREAMHOTEL\CompteBundle\Entity\Client;
 
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,13 +24,13 @@ class DefaultController extends Controller
         
         $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $task);
         
-        $task->setSaisieid('id');
+      /*  $task->setSaisieid('id');
         $task->setSaisiemdp('mot de passe');
         $task->setTypeChambre('typeChambre');
         $task->setFormuleChambre('formuleChambre');
         $task->setTypeChambre('typeChambre');
         $task->setSalle('salle');
-        $task->setActivite('Activite');
+        $task->setActivite('Activite');*/
         
         $formBuilder
             ->add('saisieid', TextType::class)
@@ -102,19 +102,31 @@ class DefaultController extends Controller
         //$form->handleRequest($request);
 	
 
-     /* if ($form->isSubmitted()) {
+      if ($form->isSubmitted()) {
 
       // On vérifie que les valeurs entrées sont correctes
       // (Nous verrons la validation des objets en détail dans le prochain chapitre)
 
          if ($form->isValid()) {
-
-        // On enregistre notre objet $livre dans la base de données : 
-        
-           $em = $this->getDoctrine()->getManager();         
-           $em->persist($task);
-           $request->getSession()->getFlashBag()->add('notice', 'Categorie bien enregistré.');
-           $em->flush();        
+             $client = new Client();
+            //$data = $form->getValues(); 
+             $data = $form->getData();
+             $data->getChamp1();
+             $data->getChamp2();
+            
+        // On enregistAdvertre notre objet $livre dans la base de données : 
+           $repository = $this
+                ->getDoctrine()
+                ->getManager()
+                ->getRepository('DREAMHOTELCompteBundle:Client');
+              
+            $client = $repository->findOneBy(array('identifiantCo' => '?'));       
+            // $listAdverts = $repository->findByAuthor('Alexandre');
+             
+          // $em = $this->getDoctrine()->getManager();         
+          // $em->persist($task);
+          // $request->getSession()->getFlashBag()->add('notice', 'Categorie bien enregistré.');
+          // $em->flush();        
            //$request->getSession()->getFlashBag()->add('notice', 'Categorie bien enregistré.');
 
       // À partir du formBuilder, on génère le formulaire
@@ -124,7 +136,7 @@ class DefaultController extends Controller
          
          
          }
-      }*/
+      }
         
         
         return $this->render('DREAMHOTELReserverBundle:Default:index.html.twig', array(
