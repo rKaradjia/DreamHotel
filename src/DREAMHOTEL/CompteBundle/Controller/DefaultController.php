@@ -2,6 +2,9 @@
 
 namespace DREAMHOTEL\CompteBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use DREAMHOTEL\CompteBundle\Entity\Compte;
 use DREAMHOTEL\CompteBundle\Entity\Client;
@@ -29,70 +32,58 @@ class DefaultController extends Controller
                
             ->add('mdpCo', PasswordType::class)    
                 
-            ->add('save', SubmitType::class, array('label' => 'Creer'));
+            ->add('save', SubmitType::class);
        
         $form = $formBuilder->getForm();
        
         $form->handleRequest($request);
-	
+        $vartestissub = 0;
+	var_dump("avant le issubmitted");
         //on verifit qu'on est en post
       if ($form->isSubmitted()) {
-
+          var_dump($vartestissub);
+          $vartestisval = 1;
       // On vérifie que les valeurs entrées sont correctes
       // (Nous verrons la validation des objets en détail dans le prochain chapitre)
-
-         if ($form->isValid()) {
-
-              $id = $form->get('identifiantCo')->getData();
-              $mdp = $form->get('mdpCo')->getData();
-        
-              /*$conn = $this->getEntityManager()->getConnection();
-//WHERE identifiantco = '.$id.' and mdpco = '.$mdp.'
-                 $sql = '
-                     SELECT * FROM client
-                     WHERE identifiantco = karado and mdpco = azerty
-                        ';
-                $stmt = $conn->prepare($sql);
-                $stmt->execute();*/
-               $entityManager = $this->getEntityManager();
-
-               $query = $entityManager->createQuery(
-                   'SELECT count(*)
-                    FROM DREAMHOTELCompteBundle\Entity\Client c
-                    WHERE c.identifiantco = :identifiantco
-                    AND c.mdpco = :mdpco'
-                  )->setParameter('identifiantco', $id)
-                   ->setParameter('mdpco' , $mdp);
-
-    // returns an array of Product objects
-           $nbLigne = $query->execute();
-
-            //    $nbLigne = $stmt->rowCount();
-    // returns an array of arrays (i.e. a raw data set)
-    //return $stmt->fetchAll();
-              if ( $nbLigne == 1){
-                  print_r ($nbLigne);
-                  print_r("RESERVER");
+          
+      //var_dump($form->getErrors());
+          
+          
+            var_dump("avant le isvalid");
+        // if ($form->isValid()) {                     PROBLEME A CORRIGER ULTERIEUREMENT 
+               var_dump("dans e isvalid");
+               var_dump($vartestisval);
+               $id = $form->get('identifiantCo')->getData();
+               $mdp = $form->get('mdpCo')->getData();
+               var_dump($id);
+               var_dump($mdp);
+            
+               $em = $this->getDoctrine()->getManager();      
+                  
+               $query = $em->createQuery(
+                   'SELECT count(c.id)
+                    FROM DREAMHOTELCompteBundle:client c
+                    WHERE c.identifiantCo = :identifiant
+                    AND c.mdpCo = :mdp'
+                  );
+                    $query->setParameter('identifiant', $id);
+                    $query->setParameter('mdp' , $mdp);
+                    
+                    $nbLigne = $query->getScalarResult();
+                    $nbLigne = 0;
+                    var_dump($nbLigne);
+                if ( count($nbLigne) == 1){
+                  dump($nbLigne);
+                  dump("RESERVER");
                   return $this->redirectToRoute('dreamhotel_reserver');
                   
-              }
+                }
            
-
-      // À partir du formBuilder, on génère le formulaire
-    // On redirige vers la page de visualisation du livre nouvellement créé
-
-        //return $this->redirectToRoute('dreamhotel_reserver', array('id' => $client->getId()));
-         
-         
-         }
-      }
-        
-       
-        return $this->render('DREAMHOTELCompteBundle:Default:index.html.twig', array(
-
-            'form' => $form->createView(),
-
-        ));
+          //  }
+        }
+      
+       return $this->render('DREAMHOTELCompteBundle:Default:index.html.twig', array('form' => $form->createView()));
+    
     }
     public function creercompteAction(Request $request)
     {
